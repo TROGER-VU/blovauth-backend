@@ -87,6 +87,8 @@ export const registerVehicleOnChain = async (did, hash) => {
     success: true,
     tx: sig,
     vehicleAddress: pda.toString(),
+    explorerTx: `https://explorer.solana.com/tx/${sig}?cluster=devnet`,
+    explorerAccount: `https://explorer.solana.com/address/${pda.toString()}?cluster=devnet`,
   };
 };
 
