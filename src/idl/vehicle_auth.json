@@ -1,0 +1,177 @@
+{
+  "address": "Gwaf9GcLo68Rve4QbfuMW7ou4JkSdeCqz2DWNNTUdvgL",
+  "metadata": {
+    "name": "vehicle_auth",
+    "version": "0.1.0",
+    "spec": "0.1.0",
+    "description": "Created with Anchor"
+  },
+  "instructions": [
+    {
+      "name": "register_vehicle",
+      "discriminator": [
+        249,
+        150,
+        162,
+        65,
+        231,
+        141,
+        147,
+        105
+      ],
+      "accounts": [
+        {
+          "name": "vehicle",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  101,
+                  104,
+                  105,
+                  99,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "did"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        },
+        {
+          "name": "system_program",
+          "address": "11111111111111111111111111111111"
+        }
+      ],
+      "args": [
+        {
+          "name": "did",
+          "type": "string"
+        },
+        {
+          "name": "hash",
+          "type": "string"
+        }
+      ]
+    },
+    {
+      "name": "update_vehicle",
+      "discriminator": [
+        114,
+        18,
+        182,
+        153,
+        74,
+        66,
+        126,
+        129
+      ],
+      "accounts": [
+        {
+          "name": "vehicle",
+          "writable": true,
+          "pda": {
+            "seeds": [
+              {
+                "kind": "const",
+                "value": [
+                  118,
+                  101,
+                  104,
+                  105,
+                  99,
+                  108,
+                  101
+                ]
+              },
+              {
+                "kind": "arg",
+                "path": "did"
+              }
+            ]
+          }
+        },
+        {
+          "name": "user",
+          "writable": true,
+          "signer": true
+        }
+      ],
+      "args": [
+        {
+          "name": "did",
+          "type": "string"
+        },
+        {
+          "name": "new_hash",
+          "type": "string"
+        }
+      ]
+    }
+  ],
+  "accounts": [
+    {
+      "name": "Vehicle",
+      "discriminator": [
+        162,
+        43,
+        29,
+        9,
+        73,
+        6,
+        44,
+        15
+      ]
+    }
+  ],
+  "errors": [
+    {
+      "code": 6000,
+      "name": "Unauthorized",
+      "msg": "Unauthorized access"
+    },
+    {
+      "code": 6001,
+      "name": "DataTooLarge",
+      "msg": "Input data too large"
+    },
+    {
+      "code": 6002,
+      "name": "InvalidDid",
+      "msg": "Invalid DID"
+    }
+  ],
+  "types": [
+    {
+      "name": "Vehicle",
+      "type": {
+        "kind": "struct",
+        "fields": [
+          {
+            "name": "owner",
+            "type": "pubkey"
+          },
+          {
+            "name": "did",
+            "type": "string"
+          },
+          {
+            "name": "hash",
+            "type": "string"
+          }
+        ]
+      }
+    }
+  ]
+}
